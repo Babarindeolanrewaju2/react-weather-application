@@ -1,0 +1,20 @@
+.current-condition {
+  color: #fff;
+  text-align: center;
+}
+
+.temperature {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  &__value {
+    font-size: 100px;
+  }
+  }
+
+
+  .temperature__status {
+    font-size: 24px;
+    text-transform: capitalize;
+  }

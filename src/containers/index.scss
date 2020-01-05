@@ -1,0 +1,12 @@
+.app__container {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to bottom, #FE5858, #EE9617);
+    overflow: hidden;
+    height: 100vh;
+    justify-content: space-between;
+}
+
+.navigation{
+    height: 100px;
+}
