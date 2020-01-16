@@ -11,10 +11,14 @@
   &__value {
     font-size: 100px;
   }
-  }
+}
 
 
-  .temperature__status {
-    font-size: 24px;
-    text-transform: capitalize;
-  }
+.temperature__status {
+  font-size: 24px;
+  text-transform: capitalize;
+}
+
+.temperature__unit-letter {
+  font-size: 48px;
+}
