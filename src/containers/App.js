@@ -35,22 +35,28 @@ class App extends React.Component {
 
   render() {
     const {
-      currentWeather: { main: { temp } = {}, weather, dt },
-      forecast5d3h: { list },
-      ipLocation
+      currentWeather,
+      ipLocation,
+      forecast5d3h
     } = this.state
+
+    const { city, country_name } = ipLocation
+    const { list } = forecast5d3h
+    const { main: { temp } = {}, weather, dt } = currentWeather
 
     return (
       <div className="app__container">
         <Location
-          loc={ipLocation}
+          city={city}
+          countryName={country_name}
         />
         <CurrentDate
           currentTime={dt}
         />
         <Tempertaure
           temperature={temp}
-          weather={weather}
+          icon={weather && weather[0].icon}
+          description={weather && weather[0].description}
         />
         <Forecast
           fiveForecast={list && list.slice(0, 5)}
