@@ -7,5 +7,4 @@ const APIUtils = {
     getForecast5d3h,
     getIPGeoLocation,
 }
-
 export default APIUtils
