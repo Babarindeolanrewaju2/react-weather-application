@@ -36,11 +36,7 @@ class App extends React.Component {
   }
 
   render() {
-    const {
-      currentWeather,
-      ipLocation,
-      forecast5d3h
-    } = this.state
+    const { currentWeather, ipLocation, forecast5d3h } = this.state
 
     const { city, country_name } = ipLocation
     const { list } = forecast5d3h
