@@ -18,19 +18,21 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    Promise.all([
-      APIUtilits.getCurrentWeather(),
-      APIUtilits.getIPGeoLocation(),
-      APIUtilits.getForecast5d3h()
-    ]).then(
-      res => {
-        this.setState({
-          currentWeather: res[0],
-          ipLocation: res[1],
-          forecast5d3h: res[2]
-        })
-      }
-    )
+    APIUtilits.getIPGeoLocation()
+      .then(res => {
+        Promise.all([
+          APIUtilits.getIPGeoLocation(),
+          APIUtilits.getForecast5d3h(res.latitude, res.longitude),
+          APIUtilits.getCurrentWeather(res.latitude, res.longitude)
+        ])
+          .then(res => {
+            this.setState({
+              ipLocation: res[0],
+              forecast5d3h: res[1],
+              currentWeather: res[2]
+            })
+          })
+      })
   }
 
   render() {
@@ -61,7 +63,6 @@ class App extends React.Component {
         <Forecast
           fiveForecast={list && list.slice(0, 5)}
         />
-        <div className="navigation"></div>
       </div>
     )
   }
