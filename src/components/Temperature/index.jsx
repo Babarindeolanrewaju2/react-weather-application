@@ -2,14 +2,14 @@ import * as React from 'react'
 import PropTypes from 'prop-types'
 import './index.scss'
 
-const Temperature = ({ weather, temperature }) => {
+const Temperature = ({ temperature, icon, description }) => {
     return (
         <section className="current-condition">
             <div className="wrapper-temperature">
-                <span className="temperature__status">{weather[0] !== undefined && weather[0].description}</span>
+                <span className="temperature__status">{description}</span>
                 <div className="temperature">
                     <div>
-                        <img src={`http://openweathermap.org/img/wn/${weather[0] !== undefined && weather[0].icon}@2x.png`} alt="weather_icon"/>
+                        <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt="weather_icon"/>
                     </div>
                     <div className="temperature__value">
                         {parseInt(temperature - 273.15)}
@@ -25,12 +25,14 @@ const Temperature = ({ weather, temperature }) => {
 }
 
 Temperature.propTypes = {
-    weather: PropTypes.array.isRequired,
-    temperature: PropTypes.number.isRequired
+    icon: PropTypes.string.isRequired,
+    temperature: PropTypes.number.isRequired,
+    description: PropTypes.string.isRequired
 }
 
 Temperature.defaultProps = {
-    weather: [],
-    temperature: 0
+    icon: '',
+    temperature: 0,
+    description: ''
 }
 export default Temperature

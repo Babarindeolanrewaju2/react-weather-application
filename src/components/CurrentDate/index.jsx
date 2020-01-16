@@ -40,11 +40,11 @@ const CurrentDate = ({ currentTime }) => {
 }
 
 CurrentDate.propTypes = {
-    date: PropTypes.string.isRequired
+    currentTime: PropTypes.number.isRequired
 }
 
 CurrentDate.defaultProps = {
-    date: ''
+    currentTime: ''
 }
 
 export default CurrentDate

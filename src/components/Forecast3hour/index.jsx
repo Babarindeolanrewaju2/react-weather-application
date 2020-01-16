@@ -29,11 +29,10 @@ const Forecast = ({ fiveForecast }) => {
 }
 
 Forecast.propTypes = {
-    hour: PropTypes.string.isRequired,
+    fiveForecast: PropTypes.array.isRequired,
 }
 
 Forecast.defaultProps = {
-    hour: '00:00',
+    fiveForecast: []
 }
-
 export default Forecast

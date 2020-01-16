@@ -2,20 +2,22 @@ import * as React from 'react'
 import PropTypes from 'prop-types';
 import './index.scss'
 
-const Location = ({ loc: { city, country_name } = {} }) => {
+const Location = ({ city, countryName }) => {
     return (
         <section className="location">
-<span className="location__text">{city}, {country_name}</span>
+            <span className="location__text">{city}, {countryName}</span>
         </section>
     )
 }
 
 Location.propTypes = {
-    loc: PropTypes.object.isRequired
+    city: PropTypes.string.isRequired,
+    countryName: PropTypes.string.isRequired
 }
 
 Location.defaultProps = {
-    loc: {}
+    city: '',
+    countryName: ''
 }
 
 export default Location
