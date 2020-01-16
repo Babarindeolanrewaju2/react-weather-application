@@ -44,7 +44,7 @@ CurrentDate.propTypes = {
 }
 
 CurrentDate.defaultProps = {
-    currentTime: ''
+    currentTime: 0
 }
 
 export default CurrentDate

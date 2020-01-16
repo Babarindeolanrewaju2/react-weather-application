@@ -52,7 +52,7 @@ class App extends React.Component {
           currentTime={dt}
         />
         <Tempertaure
-          temperature={temp}
+          temperature={temp && temp}
           icon={weather && weather[0].icon}
           description={weather && weather[0].description}
         />
