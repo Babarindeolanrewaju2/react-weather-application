@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import { connect } from 'react-redux'
+
 import Location from '../components/Location'
 import CurrentDate from '../components/CurrentDate'
 import Tempertaure from '../components/Temperature'
@@ -63,4 +65,13 @@ class App extends React.Component {
     )
   }
 }
-export default App
+
+function mapStateToProps(state) {
+  const { fetchLoc } = state
+
+  return {
+    fetchLoc
+  }
+}
+
+export default connect(mapStateToProps)(App)
