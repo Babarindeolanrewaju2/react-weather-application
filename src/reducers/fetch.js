@@ -1,1 +1,0 @@
-export const loc = state => state.loc
