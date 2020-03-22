@@ -41,12 +41,13 @@ function App({ currentWeather, ipLocation, forecast5d3h, isFetching }) {
     </div>
 }
 
-function mapStateToProps(state) {
-  const { fetchLoc } = state
-
-  return {
-    fetchLoc
-  }
-}
-
-export default connect(mapStateToProps)(App)
+export default connect(
+  ({ ipLocation, forecast5d3h, currentWeather, isFetching }) => (
+    {
+      ipLocation,
+      forecast5d3h,
+      isFetching,
+      currentWeather
+    }
+  )
+)(App)
