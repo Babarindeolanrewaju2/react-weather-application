@@ -1,8 +1,4 @@
-export const FETCH_LOC = 'FETCH_LOC'
-
-export function requestLoc(loc) {
-    return {
-      type: FETCH_LOC,
-      loc,
-    }
-  }
+export const FETCH_LOCACTION_SUCCESS = 'FETCH_LOCACTION_SUCCESS'
+export const FETCH_5DAY3HOUR_SUCCESS = 'FETCH_5DAY3HOUR_SUCCESS'
+export const FETCH_CURRENT_WEATHER_SUCCESS = "FETCH_CURRENT_WEATHER_SUCCESS"
+export const FETCH_ERROR = 'FETCH_ERROR'
