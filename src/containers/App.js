@@ -4,6 +4,7 @@ import Location from '../components/Location'
 import CurrentDate from '../components/CurrentDate'
 import Tempertaure from '../components/Temperature'
 import Forecast from '../components/Forecast3hour'
+import Settings from '../components/Settings'
 import './index.scss'
 
 function App({ currentWeather, ipLocation, forecast5d3h, isFetching }) {
@@ -14,6 +15,7 @@ function App({ currentWeather, ipLocation, forecast5d3h, isFetching }) {
 
   return isFetching ? (
     <div className="app__container">
+      <Settings />
       <Location
         city={city}
         countryName={country_name}

@@ -1,0 +1,12 @@
+.settings{
+    &__container{
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__icon{
+        font-size: 32px;
+        color: #fff;
+        margin: 10px;
+    }
+}
