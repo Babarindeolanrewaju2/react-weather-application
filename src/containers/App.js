@@ -5,6 +5,7 @@ import CurrentDate from '../components/CurrentDate'
 import Tempertaure from '../components/Temperature'
 import Forecast from '../components/Forecast3hour'
 import Settings from '../components/Settings'
+import './reset.scss'
 import './index.scss'
 
 function App({ currentWeather, ipLocation, forecast5d3h, isFetching }) {
