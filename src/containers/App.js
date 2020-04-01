@@ -5,6 +5,7 @@ import CurrentDate from '../components/CurrentDate'
 import Tempertaure from '../components/Temperature'
 import Forecast from '../components/Forecast3hour'
 import Settings from '../components/Settings'
+import Loading from "../components/Loading";
 import './reset.scss'
 import './index.scss'
 
@@ -33,15 +34,7 @@ function App({ currentWeather, ipLocation, forecast5d3h, isFetching }) {
         fiveForecast={list && list.slice(0, 5)}
       />
     </div>
-  ) :
-    <div className="app__load">
-      <div className="load__wrap">
-        <p className="load__text">Loading...</p>
-        <div className="load__dot"></div>
-        <div className="load__dot"></div>
-        <div className="load__dot"></div>
-      </div>
-    </div>
+  ) : <Loading />
 }
 
 export default connect(

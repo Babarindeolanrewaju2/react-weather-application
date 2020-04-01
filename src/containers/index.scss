@@ -11,40 +11,9 @@
     height: 100px;
 }
 
-.app__load {
-    display: flex;
-    align-items: center;
-    justify-content: center ;
-    height: 100vh;
-    margin: 0 10px 10px 0;
-    padding: 20px 20px 20px;
-    border-radius: 5px;
-    text-align: center;
-    background: linear-gradient(to bottom, #FE5858, #EE9617);
-
-    .load__wrap {
-        .load__text{
             color: #fff;
-            font-size: 36px;
-        }
-
-       .load__dot{
-        display: inline-block;
-        margin: 0 5px;
-        width: 20px;
-        height: 20px;
-        border-radius: 20px;
-        background-color: #fff;
-
-           &:nth-last-child(1) {animation: loading .6s .1s linear infinite;}
-           &:nth-last-child(2) {animation: loading .6s .2s linear infinite;}
-           &:nth-last-child(3) {animation: loading .6s .3s linear infinite;}
         }
     }
 }
 
-@keyframes loading {
-    0% {transform: translate(0,0);}
-    50% {transform: translate(0,15px);}
-    100% {transform: translate(0,0);}
 }
