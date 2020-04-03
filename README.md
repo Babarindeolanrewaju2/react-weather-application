@@ -18,7 +18,7 @@ Weather App
 - React
 - Redux
     - Redux-Saga
-
+- Now
 
 ### `Doc`
 
