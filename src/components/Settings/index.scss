@@ -1,12 +1,49 @@
-.settings{
-    &__container{
-        display: flex;
-        justify-content: flex-end;
+.settings__container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100%;
+    padding: 15px;
+    background-color: rgba($color: #000, $alpha: .9);
+
+    &.activate {
+        display: block;
     }
 
-    &__icon{
-        font-size: 32px;
-        color: #fff;
-        margin: 10px;
+    .wrap {
+        &__icon{
+            display: flex;
+            justify-content: flex-end;
+            font-size: 30px;
+            color: #fff;
+        }
+
+        &__unit {
+            display: flex;
+            flex-direction: column;
+
+            .unit {
+                &__title {
+                    margin-left: 5px;
+                    margin-bottom: 10px;
+                    font-size: 24px;
+                    color: #fff;
+                }
+                &__selector{
+                    display: flex;
+                    flex-direction: row;
+                    font-size: 18px;
+                    color: #fff;
+                    &--radio {
+                        margin-right: 10px;
+                    }
+                }
+            }
+
+        }
     }
+
 }

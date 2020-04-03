@@ -3,17 +3,24 @@
     flex-direction: column;
     background: linear-gradient(to bottom, #FE5858, #EE9617);
     overflow: hidden;
-    height: 100vh;
+    height: -webkit-fill-available;
     justify-content: space-around;
-}
+    padding: 15px;
+    box-sizing: border-box;
 
-.navigation{
-    height: 100px;
-}
-
+    >.wrap {
+        &__icon{
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            justify-content: flex-end;
+            font-size: 30px;
             color: #fff;
         }
     }
 }
 
+.navigation{
+    height: 100px;
 }

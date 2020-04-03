@@ -6,10 +6,11 @@ import Tempertaure from '../components/Temperature'
 import Forecast from '../components/Forecast3hour'
 import Settings from '../components/Settings'
 import Loading from "../components/Loading";
+import * as ACTIONS from '../actions'
 import './reset.scss'
 import './index.scss'
 
-function App({ currentWeather, ipLocation, forecast5d3h, isFetching }) {
+function App({ currentWeather, ipLocation, forecast5d3h, isFetching, dispatch, isShowSettings }) {
 
   const { city, country_name } = ipLocation || {}
   const { list } = forecast5d3h || {}
@@ -17,14 +18,26 @@ function App({ currentWeather, ipLocation, forecast5d3h, isFetching }) {
 
   return isFetching ? (
     <div className="app__container">
-      <Settings />
-      <Location
-        city={city}
-        countryName={country_name}
+      <div className="wrap__icon">
+        <span
+          className="icon__gear"
+          onClick={() => dispatch({ type: ACTIONS.SHOW_SETTINGS, payload: isShowSettings })}>
+          &#x2699;
+        </span>
+      </div>
+      <Settings
+        dispatch={dispatch}
+        isShowSettings={isShowSettings}
       />
-      <CurrentDate
-        currentTime={dt}
-      />
+      <div>
+        <Location
+          city={city}
+          countryName={null}
+        />
+        <CurrentDate
+          currentTime={dt}
+        />
+      </div>
       <Tempertaure
         temperature={temp && temp}
         icon={weather && weather[0].icon}
@@ -38,12 +51,13 @@ function App({ currentWeather, ipLocation, forecast5d3h, isFetching }) {
 }
 
 export default connect(
-  ({ ipLocation, forecast5d3h, currentWeather, isFetching }) => (
+  ({ ipLocation, forecast5d3h, currentWeather, isFetching, isShowSettings }) => (
     {
       ipLocation,
       forecast5d3h,
       isFetching,
-      currentWeather
+      currentWeather,
+      isShowSettings
     }
   )
 )(App)

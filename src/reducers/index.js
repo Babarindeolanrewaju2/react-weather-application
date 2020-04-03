@@ -2,6 +2,7 @@ import * as ACTIONS from '../actions'
 
 const initialState = {
   isFetching: false,
+  isShowSettings: false,
   ipLocation: {},
   currentWeather : {},
   forecast5d3h : {}
@@ -25,6 +26,11 @@ export default function rootReducer(state = initialState, action) {
         currentWeather: action.data,
         isFetching: true
       }
+      case ACTIONS.SHOW_SETTINGS:
+        return {
+          ...state,
+          isShowSettings: !action.payload
+        }
     default:
       return state
   }
