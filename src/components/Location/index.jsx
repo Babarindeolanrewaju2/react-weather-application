@@ -5,14 +5,14 @@ import './index.scss'
 const Location = ({ city, countryName }) => {
     return (
         <section className="location">
-            <span className="location__text">{city}, {countryName}</span>
+            <span className="location__text">{city}{countryName && `, ${countryName}`}</span>
         </section>
     )
 }
 
 Location.propTypes = {
     city: PropTypes.string.isRequired,
-    countryName: PropTypes.string.isRequired
+    countryName: PropTypes.string
 }
 
 Location.defaultProps = {
