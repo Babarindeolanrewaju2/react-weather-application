@@ -15,11 +15,12 @@ const Forecast = ({ fiveForecast }) => {
                     <span className="forecast__title">{`${timeConvert(forecast.dt)}: 00`}</span>
                     <img className="forecast__icon"
                         src={`http://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`}
+                        alt={forecast.weather[0].main}
                     />
                     <span>
                         {`${parseInt(forecast.main.temp - 273.15)}℃`}
                     </span>
-                    <span>
+                    <span role="img" aria-label="humidity">
                         &#128167;{`${forecast.main.humidity}%`}
                     </span>
                 </div>

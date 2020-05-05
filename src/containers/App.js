@@ -6,25 +6,24 @@ import Tempertaure from '../components/Temperature'
 import Forecast from '../components/Forecast3hour'
 import Settings from '../components/Settings'
 import Loading from "../components/Loading";
-import * as ACTIONS from '../actions'
 import './reset.scss'
 import './index.scss'
 
 function App({ currentWeather, ipLocation, forecast5d3h, isFetching, dispatch, isShowSettings }) {
 
-  const { city, country_name } = ipLocation || {}
+  const { city } = ipLocation || {}
   const { list } = forecast5d3h || {}
   const { main: { temp } = {}, weather, dt } = currentWeather || {}
 
   return isFetching ? (
     <div className="app__container">
-      <div className="wrap__icon">
+      {/* <div className="wrap__icon">
         <span
           className="icon__gear"
           onClick={() => dispatch({ type: ACTIONS.SHOW_SETTINGS, payload: isShowSettings })}>
           &#x2699;
         </span>
-      </div>
+      </div> */}
       <Settings
         dispatch={dispatch}
         isShowSettings={isShowSettings}

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import './index.scss'
 
-const Loading = ({ }) => {
+const Loading = () => {
     return (
         <div className="app__load">
             <div className="load__wrap">
