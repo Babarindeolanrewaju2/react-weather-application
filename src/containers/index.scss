@@ -1,4 +1,6 @@
 .app__container {
+    max-width: 375px;
+    max-height: 75vh;
     display: flex;
     flex-direction: column;
     background: linear-gradient(to bottom, #FE5858, #EE9617);
@@ -7,6 +9,12 @@
     justify-content: space-around;
     padding: 15px;
     box-sizing: border-box;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 
     >.wrap {
         &__icon{
@@ -23,4 +31,10 @@
 
 .navigation{
     height: 100px;
+}
+
+@media screen and (max-width: 992px) {
+    .app__container {
+        max-height: 100vh;
+    }
 }
