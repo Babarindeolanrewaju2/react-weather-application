@@ -15,10 +15,8 @@ Weather App
 
 ### `Tools`
 
-- React
 - Redux
-    - Redux-Saga
-- Now
+- Redux-Saga
 
 ### `Doc`
 
