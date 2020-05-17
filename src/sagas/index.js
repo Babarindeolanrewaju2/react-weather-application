@@ -1,5 +1,5 @@
 
-import { put, call, fork } from 'redux-saga/effects'
+import { put, call, fork, take } from 'redux-saga/effects'
 import APIUtilits from '../api/APIUtils'
 import * as ACTIONS from '../actions'
 
@@ -36,10 +36,24 @@ function* fetchCurrentWeather(latitude = 35.6586, longitude = 139.7454) {
   }
 }
 
+function* fetchNewLocation() {
+  try {
+    while (true) {
+      const action = yield take(ACTIONS.FECTCH_NEW_LOCATION)
+      const { currentLocation } = action.payload
+      const currentWeather = yield call(api, APIUtilits.currentWeather(null, null, currentLocation))
+      yield put({ type: ACTIONS.FETCH_CURRENT_WEATHER_SUCCESS, data: currentWeather })
+    }
+  } catch (error) {
+    yield put({ type: ACTIONS.FECTCH_NEW_LOCATION, error });
+  }
+}
+
 export function* startup() {
   yield call(fetchLocation)
 }
 
  export default function* root() {
    yield fork(startup)
+   yield fork(fetchNewLocation)
  }

@@ -1,9 +1,10 @@
 import * as React from 'react'
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import * as ACTIONS from '../../actions'
 import './index.scss'
 
-const Settings = ({ dispatch, isShowSettings }) => {
+const Settings = ({ dispatch, isShowSettings, currentLocation }) => {
     return (
         <div className={`settings__container ${isShowSettings ? 'activate' : ''}`}>
             <div className="wrap__icon">
@@ -13,9 +14,18 @@ const Settings = ({ dispatch, isShowSettings }) => {
                     &#x2715;
                 </span>
             </div>
-            <div className={`wrap__optinos`}>
+            <div className={`wrap__options`}>
+                <div className="wrap__location">
+                    <span className="options__title">Location</span>
+                    <div className="location__input">
+                        <input
+                            onChange={(e) => dispatch({ type: ACTIONS.UPATE_LOCATION, payload: {currentLocation:e.target.value} })}
+                            onKeyDown={(e) => { e.key === 'Enter' && dispatch({ type: ACTIONS.FECTCH_NEW_LOCATION, payload: {currentLocation} }) }}
+                        />
+                    </div>
+                </div>
                 <div className="wrap__unit">
-                    <span className="unit__title">Units</span>
+                    <span className="options__title">Units</span>
                     <div className="unit__selector">
                         <span className="unit__selector--radio">
                             <input type="radio" name="unit" id="fahrenheit" />
@@ -31,4 +41,18 @@ const Settings = ({ dispatch, isShowSettings }) => {
         </div>
     )
 }
-export default Settings
+
+Settings.propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    isShowSettings: PropTypes.bool.isRequired
+}
+
+Settings.defaulProps = {
+    dispatch: null,
+    isShowSettings: false
+}
+
+export default connect(
+    state => ({ currentLocation: state.currentLocation }),
+    null
+)(Settings)

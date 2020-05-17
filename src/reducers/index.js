@@ -2,10 +2,11 @@ import * as ACTIONS from '../actions'
 
 const initialState = {
   isFetching: false,
-  isShowSettings: false,
+  isShowSettings: true,
   ipLocation: {},
   currentWeather : {},
-  forecast5d3h : {}
+  forecast5d3h : {},
+  currentLocation: ''
 }
 
 export default function rootReducer(state = initialState, action) {
@@ -13,7 +14,7 @@ export default function rootReducer(state = initialState, action) {
     case ACTIONS.FETCH_LOCACTION_SUCCESS:
       return {
         ...state,
-        ipLocation: action.data,
+        ipLocation: action.data
       }
     case ACTIONS.FETCH_5DAY3HOUR_SUCCESS:
       return {
@@ -24,6 +25,7 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         currentWeather: action.data,
+        currentLocation: action.data.name,
         isFetching: true
       }
       case ACTIONS.SHOW_SETTINGS:
@@ -31,6 +33,15 @@ export default function rootReducer(state = initialState, action) {
           ...state,
           isShowSettings: !action.payload
         }
+      case ACTIONS.UPATE_LOCATION:
+        return {
+          ...state,
+          currentLocation: action.payload.currentLocation
+        }
+        case ACTIONS.FECTCH_NEW_LOCATION:
+          return {
+            ...state,
+          }
     default:
       return state
   }
